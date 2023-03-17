@@ -1,16 +1,17 @@
 """ Open AI Api"""
 
 import openai
-from storage_query_settings import StorageQuerySettings
 import os
-
+from storage_query_settings import StorageQuerySettings
+from utils import Utils
 
 class APIController:
     def __init__(self):
         print("API controller constructor called")
         # self.filename = "/home/darklord/Desktop/openai-client/secret_apikey.txt"
 
-        dirname = os.path.dirname(__file__)
+        # dirname = os.path.dirname(__file__)
+        dirname = Utils.get_config_dir()
         self.filename = os.path.join(dirname, 'secret_apikey.txt')
 
     def get_apikey(self):

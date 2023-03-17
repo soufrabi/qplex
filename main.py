@@ -1,7 +1,12 @@
 from PySide6.QtWidgets import QApplication
 from mainwindow import MainWindow
-
+from utils import Utils
 import sys
+
+
+# Call the create_config_dir() method to create the directory
+Utils.create_config_dir()
+
 
 app = QApplication(sys.argv)
 
