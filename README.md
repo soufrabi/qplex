@@ -2,21 +2,11 @@
 
 ## Linux
 
-#### Install necessary python modules
-```
-pip install --upgrade PySide6
-pip install --upgrade openai
-```
+### Releases
+- [Debian](https://github.com/awesomeDev12/openai-client-debian)
+- [Arch git](https://github.com/awesomeDev12/openai-client-arch-git)
+- [Arch binary](https://github.com/awesomeDev12/openai-client-arch-bin)
 
-#### Clone project
-```
-git clone https://github.com/awesomeDev12/openai-client.git ~/Desktop/openai-client/
-```
-
-#### Generate Desktop entry
-```
-cp  ~/Desktop/openai-client/OpenAIClient.desktop ~/.local/share/applications/OpenAIClient.desktop
-```
 
 #### Add your API key
 
@@ -24,16 +14,16 @@ cp  ~/Desktop/openai-client/OpenAIClient.desktop ~/.local/share/applications/Ope
 2. Paste or Type your API key 
 3. Click on Save
 
-### Uninstall
-#### Remove Desktop Entry
+
+### Testing
+
 ```
-rm ~/.local/share/applications/OpenAIClient.desktop
+git clone https://github.com/awesomeDev12/openai-client.git
+cd openai-client
+bash test_script.sh
 ```
 
-#### Remove Files
-```
-sudo rm -r ~/Desktop/openai-client
-```
+
 
 ## Windows
 
@@ -44,13 +34,3 @@ sudo rm -r ~/Desktop/openai-client
 > **Warning:** MacOS is not supported yet
 
 
-<!-- For developers -->
-
-<!-- To run --> 
-<!-- ``` -->
-<!-- bash launch.sh -->
-<!-- ``` -->
-<!-- or --> 
-<!-- ``` -->
-<!-- python main.py -->
-<!-- ``` -->
