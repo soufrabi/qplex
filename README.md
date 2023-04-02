@@ -1,14 +1,22 @@
 # Open AI client
 
-## Linux
+## Releases
+#### Linux
 
-### Releases
 - [Debian](https://github.com/awesomeDev12/openai-client-debian)
 - [Arch git](https://github.com/awesomeDev12/openai-client-arch-git)
 - [Arch binary](https://github.com/awesomeDev12/openai-client-arch-bin)
 
+#### Windows
 
-#### Add your API key
+- [Windows 11 binary](https://github.com/awesomeDev12/openai-client/releases/tag/v1.0.0)
+
+#### MacOS
+
+> **Warning:** MacOS is not supported yet
+
+
+### Add your API key
 
 1. Go to Settings -> Edit Settings -> API
 2. Paste or Type your API key 
@@ -25,12 +33,5 @@ bash test_script.sh
 
 
 
-## Windows
-
-> **Warning:** Windows is not supported yet
-
-## MacOS
-
-> **Warning:** MacOS is not supported yet
 
 
