@@ -4,9 +4,9 @@
 
 
 #Install in virtualenv
-python3 -m venv .venvs/openai-client-venv
+python3 -m venv venv/bin/activate
 
-if [ -f .venvs/openai-client-venv/bin/activate ]; then
+if [ -f venv/bin/activate ]; then
     echo "Good to go"
     echo "Python virtualenv created properly"
 else
@@ -18,7 +18,7 @@ else
   
 fi
 
-source .venvs/openai-client-venv/bin/activate
+source venv/bin/activate
 python3 -m pip install --upgrade pip
 python3 -m pip install PySide6
 python3 -m pip install openai
