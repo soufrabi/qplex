@@ -4,7 +4,7 @@
 
 
 #Install in virtualenv
-python3 -m venv venv/bin/activate
+python3 -m venv venv
 
 if [ -f venv/bin/activate ]; then
     echo "Good to go"
