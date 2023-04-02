@@ -108,7 +108,7 @@ class MenuBarMain(QMenuBar):
         f_data = ""
         # filename = "/home/darklord/Desktop/openai-client/reference_manual.txt"
         dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, 'reference_manual.txt')
+        filename = os.path.join(dirname, '../info/reference_manual.txt')
 
         # If File does not exist create and empty file
         if not os.path.exists(filename):
@@ -142,7 +142,7 @@ class MenuBarMain(QMenuBar):
         f_data = ""
         # filename = "/home/darklord/Desktop/openai-client/about_application.txt"
         dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, 'about_application.txt')
+        filename = os.path.join(dirname, '../info/about_application.txt')
 
         # If File does not exist create and empty file
         if not os.path.exists(filename):
@@ -177,7 +177,7 @@ class MenuBarMain(QMenuBar):
         pricing_data = ""
         # filename = "/home/darklord/Desktop/openai-client/pricing_details.txt"
         dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, 'pricing_details.txt')
+        filename = os.path.join(dirname, '../info/pricing_details.txt')
 
         # If File does not exist create and empty file
         if not os.path.exists(filename):
