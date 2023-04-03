@@ -1,3 +1,5 @@
+# Git ignore
+
 .idea/
 __pycache__/
 venv/
@@ -9,3 +11,9 @@ history_log.json
 query_text_settings.json
 query_image_settings.json
 secret_apikey.txt
+
+
+# Pyinstaller
+dist/
+build/
+main.spec

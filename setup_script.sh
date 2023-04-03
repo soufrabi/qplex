@@ -20,8 +20,10 @@ fi
 
 source venv/bin/activate
 python3 -m pip install --upgrade pip
-python3 -m pip install PySide6
-python3 -m pip install openai
+
+pip install --upgrade -r requirements.txt
+# python3 -m pip install PySide6
+# python3 -m pip install openai
 # python3 -m pip install pyinstaller
 which python
 
