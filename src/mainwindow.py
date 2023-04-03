@@ -1,11 +1,11 @@
 from PySide6.QtCore import  QSize
 from PySide6.QtGui import QAction, QIcon
 from PySide6.QtWidgets import QMainWindow, QToolBar, QPushButton, QStatusBar
-from text_main_widget import TextMainWidget
-from central_widget import CentralWidget
-from menu_bar_main import MenuBarMain
-from status_bar_main import StatusBarMain
-from toolbar_main import ToolBarMain
+from src.text_main_widget import TextMainWidget
+from src.central_widget import CentralWidget
+from src.menu_bar_main import MenuBarMain
+from src.status_bar_main import StatusBarMain
+from src.toolbar_main import ToolBarMain
 
 class MainWindow (QMainWindow):
     def __init__(self, app):

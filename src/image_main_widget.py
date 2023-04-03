@@ -4,7 +4,7 @@ from PySide6.QtWidgets import QWidget, QLabel, QScrollArea, QTextEdit, QPushButt
 from PySide6.QtGui import QPixmap, QColor
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
 from src.globals.utils import Utils
-from apis.dalle_api import DALLEApiController
+from src.apis.dalle_api import DALLEApiController
 
 
 class ImageWidgetMain(QWidget):

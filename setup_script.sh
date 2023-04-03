@@ -25,4 +25,4 @@ python3 -m pip install openai
 # python3 -m pip install pyinstaller
 which python
 
-python3 src/main.py
+python3 main.py

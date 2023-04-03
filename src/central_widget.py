@@ -1,9 +1,9 @@
 from PySide6.QtWidgets import QWidget,QHBoxLayout
 from PySide6.QtWidgets import QTabWidget
-from text_main_widget import TextMainWidget
-from image_main_widget import ImageWidgetMain
-from audio_main_widget import AudioWidgetMain
-from meme_main_widget import MemeWidgetMain
+from src.text_main_widget import TextMainWidget
+from src.image_main_widget import ImageWidgetMain
+from src.audio_main_widget import AudioWidgetMain
+from src.meme_main_widget import MemeWidgetMain
 
 
 class CentralWidget(QWidget):

@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QMenuBar, QMessageBox
 from PySide6.QtGui import QAction
 from src.localStorage.storagehistory import StorageHistory
-from edit_query_settings_ui import EditQuerySettingsDialog
+from src.edit_query_settings_ui import EditQuerySettingsDialog
 import os
 
 class MenuBarMain(QMenuBar):
