@@ -1,10 +1,8 @@
-from PySide6.QtWidgets import QDialog, QWidget, QLabel, QTabWidget, QLineEdit, QHBoxLayout, QVBoxLayout, QGridLayout
+from PySide6.QtWidgets import QDialog, QWidget, QLabel, QTabWidget, QHBoxLayout, QVBoxLayout
 from PySide6.QtWidgets import QPushButton, QSpinBox, QGroupBox, QRadioButton, QTextEdit, QMessageBox
 from PySide6.QtGui import QClipboard
-from PySide6.QtGui import QTextOption
-from PySide6.QtCore import QSize
-from storage_query_settings import StorageQuerySettings
-from apicontroller import APIController
+from src.localStorage.storage_query_settings import StorageQuerySettings
+from src.apis.api_key_controller import ApiKeyController
 
 
 class EditQuerySettingsDialog(QDialog):
@@ -144,7 +142,6 @@ class EditQuerySettingsDialog(QDialog):
         image_layout.addLayout(image_max_token_and_temperature_layout)
         widget_image.setLayout(image_layout)
 
-
         # Authentication
         widget_auth = QWidget()
         label_apikey = QLabel("API key :")
@@ -185,7 +182,7 @@ class EditQuerySettingsDialog(QDialog):
 
         # Add tabs
         tab_widget.addTab(widget_text, "Text")
-        tab_widget.addTab(widget_image,"Image")
+        tab_widget.addTab(widget_image, "Image")
         # tab_widget.addTab(widget_form, "Information")
         tab_widget.addTab(widget_auth, "API")  # Authentication
         # tab_widget.addTab(widget_buttons, "Buttons")
@@ -233,7 +230,7 @@ class EditQuerySettingsDialog(QDialog):
         ret = message.exec()
         if ret == QMessageBox.Ok:
             print("User chose Ok")
-            api_controller = APIController()
+            api_controller = ApiKeyController()
             api_controller.set_apikey(self.text_edit_apikey.toPlainText())
         elif ret == QMessageBox.Cancel:
             print("User chose Cancel")
@@ -275,11 +272,9 @@ class EditQuerySettingsDialog(QDialog):
             settings_image_dic["temperature"] * 100)  # as Temperature is always b/w 0 and 1
         self.spin_box_image_max_tokens.setValue(settings_image_dic["max_tokens"])
 
-
         # Load API key
-        api_controller = APIController()
+        api_controller = ApiKeyController()
         self.text_edit_apikey.setPlainText(api_controller.get_apikey())
-
 
     # Text Functions
     def text_max_tokens_value_changed(self):
@@ -337,7 +332,6 @@ class EditQuerySettingsDialog(QDialog):
             storage.set_text_settings(settings_dic)
         else:
             print("Radio Button Text Engine - Ada : UNCHECKED")
-
 
     # Image functions
     def image_max_tokens_value_changed(self):

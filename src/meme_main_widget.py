@@ -3,7 +3,7 @@ import os.path
 from PySide6.QtWidgets import QWidget, QLabel, QScrollArea, QTextEdit, QPushButton
 from PySide6.QtGui import QPixmap, QColor
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
-from utils import Utils
+from src.globals.utils import Utils
 from apis.meme_api import MemeApiController
 
 
@@ -14,7 +14,7 @@ class MemeWidgetMain(QWidget):
         self.scroll_area = QScrollArea()
         # scroll_area.setWidgetResizable(True)
 
-        self.image_config = {"width": 520, "height": 520}
+        self.image_config = {"width": 512, "height": 512}
 
         # Buttons start
         self.reload_button = QPushButton("Reload Images")

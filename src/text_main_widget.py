@@ -1,11 +1,8 @@
-import PySide6.QtCore
-from PySide6 import QtGui
 from PySide6.QtWidgets import QWidget, QTextEdit, QHBoxLayout, QVBoxLayout, QPushButton
 from PySide6.QtWidgets import QMessageBox, QTextBrowser, QLineEdit, QLabel
 from PySide6.QtGui import QClipboard, QTextDocument
-from apicontroller import APIController
-from storagehistory import StorageHistory
-import json
+from src.apis.chatgpt_api import ChatGPTApiController
+from src.localStorage.storagehistory import StorageHistory
 
 
 class TextMainWidget(QWidget):
@@ -124,7 +121,7 @@ class TextMainWidget(QWidget):
 
     def query_submit(self):
         input_string = self.input_text_edit.toPlainText()
-        api_controller = APIController()
+        api_controller = ChatGPTApiController()
         output_dic = api_controller.get_response_string(input_string)
         if output_dic["status"] == True:
             # First two lines provided by the API is empty

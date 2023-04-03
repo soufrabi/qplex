@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QMenuBar, QMessageBox
 from PySide6.QtGui import QAction
-from storagehistory import StorageHistory
+from src.localStorage.storagehistory import StorageHistory
 from edit_query_settings_ui import EditQuerySettingsDialog
 import os
 

@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QApplication
 from mainwindow import MainWindow
-from utils import Utils
+from src.globals.utils import Utils
 import sys
 
 

@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QTableWidget
 
-from storagehistory import StorageHistory
+from src.localStorage.storagehistory import StorageHistory
 class TableWidget(QTableWidget):
     def __init__(self):
         super().__init__()

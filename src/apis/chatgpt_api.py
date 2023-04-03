@@ -2,10 +2,12 @@
 
 import openai
 import os
-from storage_query_settings import StorageQuerySettings
-from utils import Utils
+from src.apis.api_key_controller import ApiKeyController
+from src.localStorage.storage_query_settings import StorageQuerySettings
+from src.globals.utils import Utils
 
-class APIController:
+
+class ChatGPTApiController:
     def __init__(self):
         print("API controller constructor called")
         # self.filename = "/home/darklord/Desktop/openai-client/secret_apikey.txt"
@@ -13,36 +15,14 @@ class APIController:
         # dirname = os.path.dirname(__file__)
         dirname = Utils.get_config_dir()
         self.filename = os.path.join(dirname, 'secret_apikey.txt')
-
-    def get_apikey(self):
-        # If the file does not exist then create the file
-        if not os.path.exists(self.filename):
-            open(self.filename, 'w').close()
-        # if the file is empty, them empty string
-        if os.stat(self.filename).st_size == 0:
-            f_data = ""
-        else:  # The file contains the current api key (valid/invalid)
-            with open(self.filename, "r") as f:
-                f_data = f.readline()
-        # print(f_data)
-        return f_data
-
-    def set_apikey(self, new_apikey):
-        # If the file does not exist then create the file
-        if not os.path.exists(self.filename):
-            open(self.filename, 'w').close()
-
-        # Writing to secret_apikey.txt
-        with open(self.filename, "w") as outfile:
-            outfile.write(new_apikey)
-        print("API key Set by APIController")
+        self.api_key_controller = ApiKeyController()
 
     # Get response using the api
     def get_response_string(self, prompt_string):
-        if len(prompt_string) < 15:
+        if len(prompt_string) < 10:
             return {"status": False, "text": "Invalid Input : Prompt is too small"}
 
-        OPENAI_API_KEY = self.get_apikey()
+        OPENAI_API_KEY = self.api_key_controller.get_apikey()
         if len(OPENAI_API_KEY) < 25:
             return {"status": False, "text": "Invalid API key : API key is too small"}
 
@@ -97,6 +77,7 @@ class APIController:
         except ValueError as e:
             print(f"Value Error : {e}")
             output_dic = {"status": False, "text": "Error :- \n" + f"Value Error : {e}"}
+            pass
         except:
             print("Inside the bare error block")
             output_dic = {"status": False, "text": "Error :- \n" + "Could not recognize type of error"}

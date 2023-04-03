@@ -1,14 +1,14 @@
 import json
 import os
 import datetime
-from utils import Utils
+from src.globals.utils import Utils
 
 class StorageHistory:
     def __init__(self):
         # self.filename = "/home/darklord/Desktop/openai-client/history_log.json"
 
         # dirname = os.path.dirname(__file__)
-        dirname = Utils.get_config_dir()
+        dirname = Utils.get_history_dir()
         self.filename = os.path.join(dirname, 'history_log.json')
 
     def get_history(self):
