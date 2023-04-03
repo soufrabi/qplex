@@ -8,7 +8,7 @@ from storagehistory import StorageHistory
 import json
 
 
-class MainWidget(QWidget):
+class TextMainWidget(QWidget):
     def __init__(self):
         super().__init__()
 
@@ -16,9 +16,9 @@ class MainWidget(QWidget):
         # self.setWindowTitleFont(font)
         self.setWindowTitle("Open AI client")
 
-        self.setMinimumSize(700, 500)
+        # self.setMinimumSize(700, 500)
         self.input_text_edit = QTextEdit()
-        self.input_text_edit.setFixedHeight(100)
+        # self.input_text_edit.setFixedHeight(100)
         self.input_text_edit.setPlaceholderText("INPUT")
 
         self.output_text_edit = QTextEdit()
