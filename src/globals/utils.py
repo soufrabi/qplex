@@ -101,6 +101,20 @@ class Utils:
         dalle_dir = os.path.join(media_images_dir, 'dalle')
         return dalle_dir
 
+    @staticmethod
+    def empty_dir(dir_path):
+
+        print("Delete contents of "+dir_path)
+        for filename in os.listdir(dir_path):
+            file_path = os.path.join(dir_path, filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)
+                elif os.path.isdir(file_path):
+                    os.rmdir(file_path)
+            except Exception as e:
+                print(f"Error deleting {file_path}: {e}")
+
 # @staticmethod
 # def get_config_dir():
 #     # Check if the operating system is Linux

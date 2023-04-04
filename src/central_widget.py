@@ -20,7 +20,7 @@ class CentralWidget(QWidget):
 
         tab_widget.addTab(self.widget_text,"Text")
         tab_widget.addTab(self.widget_image,"Image")
-        tab_widget.addTab(self.widget_audio,"Audio")
+        # tab_widget.addTab(self.widget_audio,"Audio")
         tab_widget.addTab(self.widget_memes, "Memes")
 
         layout = QHBoxLayout()

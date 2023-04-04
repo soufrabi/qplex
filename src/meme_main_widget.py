@@ -1,10 +1,12 @@
 import os.path
+import shutil
 
 from PySide6.QtWidgets import QWidget, QLabel, QScrollArea, QTextEdit, QPushButton
 from PySide6.QtGui import QPixmap, QColor
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
 from src.globals.utils import Utils
 from src.apis.meme_api import MemeApiController
+from src.extra_widgets.popups import Popups
 
 
 class MemeWidgetMain(QWidget):
@@ -20,8 +22,14 @@ class MemeWidgetMain(QWidget):
         self.reload_button = QPushButton("Reload Images")
         self.reload_button.clicked.connect(self.reload_images)
 
+        self.save_to_folder_button = QPushButton("Save Memes")
+        self.save_to_folder_button.clicked.connect(self.save_to_folder_button_clicked)
+
         self.clear_output_button = QPushButton("Clear Output")
         self.clear_output_button.clicked.connect(self.clear_output)
+
+        self.clear_history_button = QPushButton("Clear History")
+        self.clear_history_button.clicked.connect(self.clear_history)
 
         self.next_meme_button = QPushButton("Next Meme")
         self.next_meme_button.clicked.connect(self.next_meme)
@@ -51,6 +59,8 @@ class MemeWidgetMain(QWidget):
         layout_top = QHBoxLayout()
         layout_top.addWidget(self.reload_button)
         layout_top.addWidget(self.clear_output_button)
+        layout_top.addWidget(self.save_to_folder_button)
+        layout_top.addWidget(self.clear_history_button)
         layout_top.addWidget(self.next_meme_button)
 
         layout_left = QVBoxLayout()
@@ -70,6 +80,39 @@ class MemeWidgetMain(QWidget):
 
         self.setLayout(layout)
 
+    def clear_history(self):
+        confirm = Popups.get_confirmation("Clear Memes History", "Do you want to clear memes history",
+                                          "Think, then decide")
+
+        if confirm:
+            dir_path = Utils.get_memes_dir()
+            Utils.empty_dir(dir_path)
+
+    def save_to_folder_button_clicked(self):
+
+        src_dir = Utils.get_memes_dir()
+        dst_dir = Popups.get_path_dir()
+
+        if os.path.exists(dst_dir):
+            # Copy the contents of the source directory to the destination directory
+            print("Copying to "+dst_dir)
+            try:
+                # Copy all files in the source directory to the destination directory
+                for file_name in os.listdir(src_dir):
+                    src_path = os.path.join(src_dir, file_name)
+                    dst_path = os.path.join(dst_dir, file_name)
+                    if os.path.isfile(src_path):
+                        if not os.path.exists(dst_path):
+                            shutil.copy2(src_path, dst_path)
+                            print(f"Copied {src_path} to {dst_path}")
+                        else:
+                            print(f"Skipping {src_path} because {dst_path} already exists")
+            except:
+                print("Error while trying to copy files")
+
+        else:
+            print("No directory selected")
+
     def next_meme(self):
         print("Next meme button")
         dirname = Utils.get_memes_dir()
@@ -85,7 +128,8 @@ class MemeWidgetMain(QWidget):
         self.output_image.setPixmap(pixmap)
 
         size = len(os.listdir(dirname))
-        filename = "image" + str(size) + ".jpg"
+        # filename = "image" + str(size) + ".jpg"
+        filename = "image_meme_{:03d}.jpg".format(size)
         filepath = os.path.join(dirname, filename)
 
         pixmap.save(filepath)
@@ -109,6 +153,7 @@ class MemeWidgetMain(QWidget):
         container.setLayout(container_layout)
 
         contents = os.listdir(dirname)
+        contents.sort()
         print(contents)
 
         for filename in reversed(contents):
