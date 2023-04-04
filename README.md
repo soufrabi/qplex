@@ -28,7 +28,7 @@
 ```
 git clone https://github.com/awesomeDev12/openai-client.git
 cd openai-client
-bash setup_script.sh
+bash scripts/setup_script.sh
 ```
 
 
