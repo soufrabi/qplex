@@ -1,7 +1,6 @@
-# Test script
-#
-# 
+#!/bin/sh
 
+# Test script
 
 #Install in virtualenv
 python3 -m venv venv
