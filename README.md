@@ -22,24 +22,44 @@
 
 </p>
 
-<p>
-  <h3>Screenshots</h3>
-</p>
+## Screenshots
+<div align="center" style=""> 
 
-<h3>Add your API key</h3>
+  <img alt="screenshot1" style="max-width:40vw;" src="https://awesomedev12.github.io/assets/openai-client/screenshots/screenshot1.png">
+  <img alt="screenshot1" style="max-width:40vw;" src="https://awesomedev12.github.io/assets/openai-client/screenshots/screenshot2.png">
+
+</div>
+
+## Getting Started
+
+### Installation
+Download the application for your OS from the
+<a href="https://github.com/awesomeDev12/openai-client/releases/">releases section</a>
+
+#### Add your API key
 
 1. Go to Settings -> Edit Settings -> API
 2. Paste or Type your API key 
 3. Click on Save
 
+## Development
 
-<h3>Testing</h3>
+### Testing
 
 ```sh
 git clone https://github.com/awesomeDev12/openai-client.git
 cd openai-client
 ./scripts/setup_script.sh
 ```
+
+
+## Author
+
+<a href = "https://awesomedev12.github.io/site" style="text-decoration: none; color: inherit;">Anirban Dey</a>
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
 
 
