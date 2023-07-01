@@ -5,5 +5,5 @@ Terminal=false
 Exec=/usr/bin/openai-client
 Name=OpenAI client
 Comment=OpenAI client for Desktop (Unofficial)
-Icon=/usr/share/icons/openai-client.jpg
+Icon=openai-client
 
