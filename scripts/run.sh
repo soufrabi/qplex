@@ -6,4 +6,5 @@ echo "Open AI client made using PySide6 qt"
 # python /opt/openai-client/main.py
 # deactivate
 
-/opt/openai-client/binaries/main
+# /opt/openai-client/binaries/main
+/opt/openai-client/main
