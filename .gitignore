@@ -17,3 +17,7 @@ secret_apikey.txt
 dist/
 build/
 main.spec
+
+
+# Deb build
+build_linux/
