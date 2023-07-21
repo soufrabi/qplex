@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Set up Python 
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@master
       with:
         python-version: '3.8'
         cache: 'pip'
