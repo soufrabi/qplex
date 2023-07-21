@@ -20,11 +20,9 @@ jobs:
       with:
         python-version: '3.10'
         architecture: 'x64'
-    - name: See
-      run: ls -la
     - name: Prepare
-      run: ./scripts/scripts.sh setup
+      run: ./scripts/script.sh setup
     - name: Build
-      run: ./scripts/scripts.sh build
+      run: ./scripts/script.sh build
 
 
