@@ -18,9 +18,9 @@ jobs:
     - name: Set up Python 
       uses: actions/setup-python@v3
       with:
-        python-version: "3.8"
-        cache: pip
-        architecture: x86
+        python-version: '3.8'
+        cache: 'pip'
+        architecture: 'x86'
     - name: Prepare
       run: ./scripts/scripts.sh setup
     - name: Build
