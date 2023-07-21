@@ -30,6 +30,13 @@
 
 </div>
 
+## Videos
+<div align="center" style="">
+
+  [![video1](https://anirbandey1.github.io/assets/openai-client/videos/video1.gif)](https://anirbandey1.github.io/assets/openai-client/videos/video1.mp4)
+
+</div>
+
 ## Getting Started
 
 ### Installation
