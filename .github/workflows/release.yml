@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
+    - name: Dependecies
+      run : sudo apt update && sudo apt install -y libgl1 ffmpeg libsm6 libxext6 
     - uses: actions/checkout@v3
     - name: Set up Python 
       uses: actions/setup-python@master
@@ -17,8 +19,6 @@ jobs:
         python-version: '3.10.6'
         architecture: 'x64'
         cache: 'pip'
-    - name: Dependecies
-      run : sudo apt update && sudo apt install -y libgl1
     - name: Prepare
       run: ./scripts/script.sh setup
     - name: Build
