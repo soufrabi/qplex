@@ -14,13 +14,12 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python 
       uses: actions/setup-python@master
       with:
         python-version: '3.8'
-        cache: 'pip'
-        architecture: 'x86'
+        architecture: 'x64'
     - name: Prepare
       run: ./scripts/scripts.sh setup
     - name: Build
