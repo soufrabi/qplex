@@ -17,6 +17,7 @@ jobs:
       with:
         python-version: '3.10'
         architecture: 'x64'
+        cache: 'pip'
     - name: Prepare
       run: ./scripts/script.sh setup
     - name: Build
