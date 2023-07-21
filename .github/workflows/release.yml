@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Dependecies
-      run : sudo apt update && sudo apt install -y libgl1 ffmpeg libsm6 libxext6 libegl1
+      run : sudo apt update && sudo apt install -y libgl1 ffmpeg libsm6 libxext6 libegl1 '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
     - uses: actions/checkout@v3
     - name: Set up Python 
       uses: actions/setup-python@master
