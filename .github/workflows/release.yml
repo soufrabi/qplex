@@ -18,7 +18,7 @@ jobs:
         architecture: 'x64'
         cache: 'pip'
     - name: Dependecies
-      run : apt update && apt install libgl1
+      run : sudo apt update && sudo apt install -y libgl1
     - name: Prepare
       run: ./scripts/script.sh setup
     - name: Build
