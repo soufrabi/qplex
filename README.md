@@ -40,7 +40,17 @@
 ## Getting Started
 
 ### Installation
-Download the application for your OS from the
+
+#### Linux
+
+On Debian/Ubuntu
+```sh
+cd $(mktemp -d) &&  curl -LO https://github.com/anirbandey1/openai-client/releases/download/v1.0.2/openai-client.deb  && sudo apt install ./openai-client.deb
+```
+
+#### Windows
+
+Download the application from the
 <a href="https://github.com/anirbandey1/openai-client/releases/">releases section</a>
 
 #### Add your API key
@@ -56,7 +66,9 @@ Download the application for your OS from the
 ```sh
 git clone https://github.com/anirbandey1/openai-client.git
 cd openai-client
-./scripts/setup_script.sh
+./scripts/linux.sh install-dependencies
+./scripts/linux.sh setup
+
 ```
 
 
