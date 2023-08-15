@@ -6,29 +6,70 @@ on:
     - "v[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
-  build-job:
+  build-linux:
     runs-on: ubuntu-22.04
 
     steps:
-    - name: Dependecies
-      run : sudo apt update && sudo apt install -y libgl1 ffmpeg libsm6 libxext6 libegl1 '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
     - uses: actions/checkout@v3
+    - name: Dependencies
+      run: ./scripts/linux.sh install-dependencies
     - name: Set up Python 
       uses: actions/setup-python@master
       with:
         python-version: '3.10.6'
         architecture: 'x64'
         cache: 'pip'
-    - name: Prepare
-      run: ./scripts/script.sh setup
+    - name: Setup
+      run: ./scripts/linux.sh setup
     - name: Build
-      run: ./scripts/script.sh build
-    - name: Release
-      uses: docker://antonyurchenko/git-release:v5
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: ./scripts/linux.sh build
+    - uses: actions/upload-artifact@v3
       with:
-        args: |
-            build_linux/*.deb
+        name: artefacts_linux
+        path: ./build_linux/*.deb
+        if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
+        retention-days: 1
+
+  publish:
+    needs: [build-linux]
+    runs-on: ubuntu-latest
+    env:
+      GH_REPO: ${{ github.repository }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: write
+    steps:
+      # Must perform checkout first, since it deletes the target directory
+      # before running, and would therefore delete the downloaded artifacts
+      - uses: actions/checkout@v3
+
+      - uses: actions/download-artifact@v3
+      - name: Install dependencies
+        run: | 
+          sudo apt-get update && sudo apt-get install -y gettext-base
+          sudo apt install -y tree
+
+      # - name: Rename artefacts
+      #   run: | 
+      #     mv -v artefacts_linux/ryuu artefacts_linux/ryuu-linux
+      - name: Public release
+        run: |
+          echo "Publishing to github release"
+          tree -L 3
+          gh release create latest || echo "Release creation failed, but continuing..." && true
+          gh release upload --clobber latest artefacts_linux/*
+
+        
+  cleanup:
+    runs-on: ubuntu-latest
+    # env:
+    #   GITHUB_REPOSITORY: ${{ github.repository }}
+    #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    needs: [build-linux, publish]
+    if: always()  # This ensures that cleanup runs even if dependent jobs fail
+    steps:
+      - name: Cleanup Begin
+        run: |
+          echo "Clean up begins"
 
 

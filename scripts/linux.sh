@@ -1,15 +1,43 @@
 #!/bin/sh
 
-if [ ! "$#"  = 1 ] ; then
-	echo "Please provide the action to be performed"
-	exit 1
+show_help(){
+
+	cat << EOF
+linux.sh
+
+Choose one of the available commands:
+	build
+	setup
+	install-dependecies
+	help | --help | -h
+	
+EOF
+
+
+}
+
+
+if [ $# -eq 0 ]; then
+	show_help
+	exit
 fi
 
-action="$1"
 
 
-if [ "${action}" = "setup" ]; then
 
+
+_install_dependencies() {
+	echo "Install dependencies in Linux"
+
+	sudo apt update && sudo apt install -y libgl1 ffmpeg libsm6 libxext6 libegl1 '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+
+
+}
+
+
+
+
+_setup() {
 #Install in virtualenv
 python3 -m venv venv
 
@@ -36,9 +64,10 @@ pip3 install --upgrade -r requirements.txt
 # python3 -m pip install openai
 # python3 -m pip install pyinstaller
 
+}
 
+_build() {
 
-elif [ "${action}" = "build" ]; then
     . venv/bin/activate
     pyinstaller -F main.py
 
@@ -57,16 +86,40 @@ elif [ "${action}" = "build" ]; then
 	cp -rv "assets/usr/share" "${build_dir}/${_pkgname}/usr"
 	cd ${build_dir} && dpkg-deb --build ${_pkgname}
 
-
-else
-    echo "Unknown action"
-    
-    
-fi
+}
 
 
 
 
 
+main() {
 
+	case "$1" in 
+		(build)
+			shift
+			_build "$@"
+			;;
+		(install-dependencies)
+			shift
+			_install_dependencies "$@"
+			;;
+		(setup)
+			shift
+			_setup "$@"
+			;;
+		(help | --help | -h)
+			show_help 
+			exit 0 
+			;;
+		(*)
+			printf >&2 "Error: invalid command\n"
+			show_help
+			exit 1
+			;;
 
+	esac
+	
+
+}
+
+main "$@"
