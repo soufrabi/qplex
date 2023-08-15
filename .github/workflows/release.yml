@@ -1,10 +1,14 @@
 name: release
 
 on:
+
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name for release'
+        required: false
+        default: nightly
   push:
-    branches:
-      - main
-      - master
     tags:
     - "v[0-9]+.[0-9]+.[0-9]+"
 
@@ -52,6 +56,16 @@ jobs:
           sudo apt-get update && sudo apt-get install -y gettext-base
           sudo apt install -y tree
 
+
+      - if: github.event_name == 'workflow_dispatch'
+        run: echo "TAG_NAME=${{ github.event.inputs.tag_name }}" >> $GITHUB_ENV
+      - if: github.event_name == 'schedule'
+        run: echo 'TAG_NAME=nightly' >> $GITHUB_ENV
+      - if: github.event_name == 'push'
+        run: |
+          TAG_NAME=${{ github.ref }}
+          echo "TAG_NAME=${TAG_NAME#refs/tags/}" >> $GITHUB_ENV
+
       # - name: Rename artefacts
       #   run: | 
       #     mv -v artefacts_linux/ryuu artefacts_linux/ryuu-linux
@@ -59,8 +73,8 @@ jobs:
         run: |
           echo "Publishing to github release"
           tree -L 3
-          gh release create latest || echo "Release creation failed, but continuing..." && true
-          gh release upload --clobber latest artefacts_linux/*
+          gh release create $TAG_NAME || echo "Release creation failed, but continuing..." && true
+          gh release upload --clobber $TAG_NAME artefacts_linux/*
 
         
   cleanup:
