@@ -1,6 +1,6 @@
 import json
 import os
-from src.globals.utils import Utils
+from src.globals.utils import utils
 
 class StorageQuerySettings:
     def __init__(self):
@@ -8,7 +8,7 @@ class StorageQuerySettings:
         # filename = os.path.join(dirname, 'relative/path/to/file/you/want')
 
 #         dirname = os.path.dirname(__file__)
-        dirname = Utils.get_settings_dir()
+        dirname = utils.get_settings_dir()
         self.filename_text = os.path.join(dirname, 'query_text_settings.json')
         self.filename_image = os.path.join(dirname, 'query_image_settings.json')
         # self.filename_text = "/home/darklord/Desktop/openai-client/query_text_settings.json"

@@ -4,7 +4,7 @@ import openai
 import os
 from src.apis.api_key_controller import ApiKeyController
 from src.localStorage.storage_query_settings import StorageQuerySettings
-from src.globals.utils import Utils
+from src.globals.utils import utils
 
 
 class ChatGPTApiController:
@@ -13,7 +13,7 @@ class ChatGPTApiController:
         # self.filename = "/home/darklord/Desktop/openai-client/secret_apikey.txt"
 
         # dirname = os.path.dirname(__file__)
-        dirname = Utils.get_config_dir()
+        dirname = utils.get_config_dir()
         self.filename = os.path.join(dirname, 'secret_apikey.txt')
         self.api_key_controller = ApiKeyController()
 

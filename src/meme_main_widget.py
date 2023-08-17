@@ -4,7 +4,7 @@ import shutil
 from PySide6.QtWidgets import QWidget, QLabel, QScrollArea, QTextEdit, QPushButton
 from PySide6.QtGui import QPixmap, QColor
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
-from src.globals.utils import Utils
+from src.globals.utils import utils
 from src.apis.meme_api import MemeApiController
 from src.extra_widgets.popups import Popups
 
@@ -85,12 +85,12 @@ class MemeWidgetMain(QWidget):
                                           "Think, then decide")
 
         if confirm:
-            dir_path = Utils.get_memes_dir()
-            Utils.empty_dir(dir_path)
+            dir_path = utils.get_memes_dir()
+            utils.empty_dir(dir_path)
 
     def save_to_folder_button_clicked(self):
 
-        src_dir = Utils.get_memes_dir()
+        src_dir = utils.get_memes_dir()
         dst_dir = Popups.get_path_dir()
 
         if os.path.exists(dst_dir):
@@ -115,7 +115,7 @@ class MemeWidgetMain(QWidget):
 
     def next_meme(self):
         print("Next meme button")
-        dirname = Utils.get_memes_dir()
+        dirname = utils.get_memes_dir()
 
         meme_obj = MemeApiController()
         pixmap = meme_obj.get_pixmap()
@@ -145,7 +145,7 @@ class MemeWidgetMain(QWidget):
     def reload_images(self):
         print("Reloading images")
 
-        dirname = Utils.get_memes_dir()
+        dirname = utils.get_memes_dir()
 
         # Create a widget to contain the images
         container = QWidget()

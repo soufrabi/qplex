@@ -3,7 +3,7 @@
 import openai
 import os
 from src.localStorage.storage_query_settings import StorageQuerySettings
-from src.globals.utils import Utils
+from src.globals.utils import utils
 
 class ApiKeyController:
     def __init__(self):
@@ -11,7 +11,7 @@ class ApiKeyController:
         # self.filename = "/home/darklord/Desktop/openai-client/secret_apikey.txt"
 
         # dirname = os.path.dirname(__file__)
-        dirname = Utils.get_settings_dir()
+        dirname = utils.get_settings_dir()
         self.filename = os.path.join(dirname, 'secret_apikey.txt')
 
     def get_apikey(self):

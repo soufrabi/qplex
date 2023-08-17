@@ -6,7 +6,7 @@ from PySide6.QtGui import QPixmap, QColor
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
 
 from src.extra_widgets.popups import Popups
-from src.globals.utils import Utils
+from src.globals.utils import utils
 from src.apis.dalle_api import DALLEApiController
 
 
@@ -108,7 +108,7 @@ class ImageWidgetMain(QWidget):
             print("User chose unknown button")
 
     def query_submit(self):
-        dirname = Utils.get_dalle_dir()
+        dirname = utils.get_dalle_dir()
 
         prompt_string = self.input_text_edit.toPlainText()
         prompt_obj = {"prompt": prompt_string}
@@ -138,7 +138,7 @@ class ImageWidgetMain(QWidget):
 
     def save_to_folder_button_clicked(self):
 
-        src_dir = Utils.get_dalle_dir()
+        src_dir = utils.get_dalle_dir()
         dst_dir = Popups.get_path_dir()
 
         if os.path.exists(dst_dir):
@@ -165,8 +165,8 @@ class ImageWidgetMain(QWidget):
                                           "Think, then decide")
 
         if confirm:
-            dir_path = Utils.get_dalle_dir()
-            Utils.empty_dir(dir_path)
+            dir_path = utils.get_dalle_dir()
+            utils.empty_dir(dir_path)
 
     def clear_output(self):
 
@@ -179,7 +179,7 @@ class ImageWidgetMain(QWidget):
     def reload_images(self):
         print("Reloading images")
 
-        dirname = Utils.get_dalle_dir()
+        dirname = utils.get_dalle_dir()
 
         # Create a widget to contain the images
         container = QWidget()
