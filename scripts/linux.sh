@@ -8,7 +8,7 @@ linux.sh
 Choose one of the available commands:
 	build
 	setup
-	install-dependecies
+	install-dependencies
 	help | --help | -h
 	
 EOF
