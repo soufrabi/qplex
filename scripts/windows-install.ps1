@@ -89,7 +89,7 @@ Create-FolderIfNotExists -FolderPath $AppDirectory
 
 # Go to AppDirectory
 Set-Location $AppDirectory
-Write-Host "Currenlty in Directory : $(Get-Location)"
+Write-Host "Currently in Directory : $(Get-Location)"
 
 # Download
 Invoke-WebRequest -Uri  $Uri -OutFile $Dest
