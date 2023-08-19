@@ -33,6 +33,8 @@ function Test-AdminPrivileges {
     $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
     if (-not $isAdmin) {
         Write-Host "Please run this script as an administrator."
+        Start-Sleep -Seconds 5
+        exit 1
     }
 }
 
