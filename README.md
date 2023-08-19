@@ -50,6 +50,13 @@ cd $(mktemp -d) &&  curl -LO https://github.com/anirbandey1/openai-client/releas
 
 #### Windows
 
+Open Powershell in Admin mode and run the following command
+```
+irm https://git.anirbandey.net/anirban/openai-client/tree/scripts/windows-install.ps1?h=master | iex
+```
+
+or, 
+
 Download the application from the
 <a href="https://github.com/anirbandey1/openai-client/releases/">releases section</a>
 
