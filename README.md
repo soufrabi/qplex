@@ -52,7 +52,7 @@ cd $(mktemp -d) &&  curl -LO https://github.com/anirbandey1/openai-client/releas
 
 Open Powershell in Admin mode and run the following command
 ```
-irm https://git.anirbandey.net/anirban/openai-client/tree/scripts/windows-install.ps1?h=master | iex
+irm https://git.anirbandey.net/anirban/openai-client/plain/scripts/windows-install.ps1?h=master | iex
 ```
 
 or, 
