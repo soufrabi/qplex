@@ -1,6 +1,5 @@
 
 
-
 # Function to check if a directory exists
 function Test-DirectoryExists {
     param (
@@ -34,7 +33,6 @@ function Test-AdminPrivileges {
     $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
     if (-not $isAdmin) {
         Write-Host "Please run this script as an administrator."
-        exit
     }
 }
 
@@ -56,26 +54,27 @@ function Test-AdminPrivileges {
 #     }
 # }
 
-function AddTo-Path{
-param(
-    [string]$Dir
-)
+# function AddTo-Path{
+# param(
+#     [string]$Dir
+# )
 
-    if( !(Test-Path $Dir) ){
-        Write-warning "Supplied directory was not found!"
-        return
-    }
-    $PATH = [Environment]::GetEnvironmentVariable("PATH", "Machine")
-    if( $PATH -notlike "*"+$Dir+"*" ){
-        [Environment]::SetEnvironmentVariable("PATH", "$PATH;$Dir", "Machine")
-    }
-}
+#     if( !(Test-Path $Dir) ){
+#         Write-warning "Supplied directory was not found!"
+#         return
+#     }
+#     $PATH = [Environment]::GetEnvironmentVariable("PATH", "Machine")
+#     if( $PATH -notlike "*"+$Dir+"*" ){
+#         [Environment]::SetEnvironmentVariable("PATH", "$PATH;$Dir", "Machine")
+#     }
+# }
 
 
 
 # Define the directory containing your application
 $AppName = "openai-client"
-$AppDirectory = "C:\Program Files\openai-client"  # Change to your actual directory
+$Author = "anirban"
+$AppDirectory = "C:\Program Files\${Author}\${AppName}"  # Change to your actual directory
 $Uri = "https://github.com/anirbandey1/openai-client/releases/download/v1.0.0/openai-client.exe"
 $Dest = "openai-client.exe"
 
@@ -86,22 +85,15 @@ Test-AdminPrivileges
 # Create AppDirectory
 Create-FolderIfNotExists -FolderPath $AppDirectory
 
+# Go to AppDirectory
 Set-Location $AppDirectory
+Write-Host "Currenlty in Directory : $(Get-Location)"
 
 # Download
 Invoke-WebRequest -Uri  $Uri -OutFile $Dest
 
-
-
 # Add the directory to the system-wide PATH
-AddTo-Path -Dir $AppDirectory
-
-$SourceFile = $Dest
-$DestinationDirectory = $AppDirectory
-
-
-Copy-Item -Path $SourceFile -Destination $DestinationDirectory -Force
-Write-Host "Copied $SourceFile to $DestinationDirectory."
+# AddTo-Path -Dir $AppDirectory
 
 
 Write-Host "Installed $AppName successfully"
