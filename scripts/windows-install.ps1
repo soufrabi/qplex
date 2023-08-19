@@ -130,7 +130,7 @@ function Main {
 # Define the directory containing your application
 $AppName = "openai-client"
 $ExeName = "openai-client.exe"
-$Author = "anirban"
+$Author = "Anirban"
 $AuthorDirectory = "C:\Program Files\${Author}"  # Change to your actual directory
 $BinDirectory = "C:\Program Files\${Author}\Bin"  # Change to your actual directory
 $AppDirectory = "C:\Program Files\${Author}\Apps\${AppName}"  # Change to your actual directory
@@ -161,7 +161,7 @@ Invoke-WebRequest -Uri  $Uri -OutFile $Dest
 
 # Add the directory to the system-wide PATH
 # AddTo-Path -Dir $AppDirectory
-Add-EnvPath $BinDirectory
+Add-EnvPath -Path $BinDirectory -Container "User"
 
 New-Item -ItemType SymbolicLink -Path "$BinDirectory\$ExeName" -Target "$AppDirectory\$ExeName" 
 
