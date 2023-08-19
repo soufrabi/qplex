@@ -144,8 +144,8 @@ Test-AdminPrivileges
 
 
 # Delete Existing App
-Remove-Item -LiteralPath "$AppDirectory"  -Force -Recurse
-Remove-Item -LiteralPath "$BinDirectory\$ExeName"  -Force 
+Remove-Item -LiteralPath "$AppDirectory"  -Force -Recurse -ErrorAction SilentlyContinue
+Remove-Item -LiteralPath "$BinDirectory\$ExeName"  -Force  -ErrorAction SilentlyContinue
 
 # Create AppDirectory
 Create-FolderIfNotExists -FolderPath $AuthorDirectory
