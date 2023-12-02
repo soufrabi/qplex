@@ -8,7 +8,7 @@ linux.sh
 Choose one of the available commands:
 	build
 	setup
-	install-dependencies
+	deps
 	help | --help | -h
 	
 EOF
@@ -26,7 +26,7 @@ fi
 
 
 
-_install_dependencies() {
+install_dependencies() {
 	echo "Install dependencies in Linux"
 
 	sudo apt update && sudo apt install -y libgl1 ffmpeg libsm6 libxext6 libegl1 '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
@@ -99,9 +99,9 @@ main() {
 			shift
 			_build "$@"
 			;;
-		(install-dependencies)
+		(deps)
 			shift
-			_install_dependencies "$@"
+			install_dependencies "$@"
 			;;
 		(setup)
 			shift

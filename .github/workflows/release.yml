@@ -42,7 +42,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Dependencies
-      run: ./scripts/linux.sh install-dependencies
+      if: matrix.build == 'linux'
+      run: ./scripts/linux.sh deps
     - name: Set up Python 
       uses: actions/setup-python@master
       with:
