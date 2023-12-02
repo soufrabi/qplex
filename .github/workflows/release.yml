@@ -15,7 +15,7 @@ on:
     - "nightly"
 
 jobs:
-  build-linux:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
