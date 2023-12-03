@@ -25,8 +25,8 @@
 ## Screenshots
 <div align="center" style=""> 
 
-  <img alt="screenshot1" style="max-width:40vw;" src="https://soufrabi.github.io/assets/openai-client/screenshots/screenshot1.png">
-  <img alt="screenshot1" style="max-width:40vw;" src="https://soufrabi.github.io/assets/openai-client/screenshots/screenshot2.png">
+  <img alt="screenshot1" style="max-width:40vw;" src="https://soufrabi.github.io/project-assets/openai-client/screenshots/screenshot1.png">
+  <img alt="screenshot1" style="max-width:40vw;" src="https://soufrabi.github.io/project-assets/openai-client/screenshots/screenshot2.png">
 
 </div>
 
