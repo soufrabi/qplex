@@ -113,6 +113,7 @@ jobs:
               echo "Not PRERELEASE"
               ;;
           esac
+          echo "TAG_NAME : ${TAG_NAME}"
           gh release create ${PRERELEASE_FLAG} "$TAG_NAME" || echo "Release creation failed, but continuing..." && true
           gh release upload --clobber "$TAG_NAME" artifacts_linux/*
 
