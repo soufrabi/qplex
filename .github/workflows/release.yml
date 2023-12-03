@@ -9,6 +9,8 @@ on:
         required: false
         default: alpha
   push:
+    branches:
+      - "main"
     tags:
     - "v[0-9]+.[0-9]+.[0-9]+"
     - "stable"
@@ -72,26 +74,25 @@ jobs:
     permissions:
       contents: write
     steps:
-      # Must perform checkout first, since it deletes the target directory
-      # before running, and would therefore delete the downloaded artifacts
       - uses: actions/checkout@v3
-
       - uses: actions/download-artifact@v3
       - name: Install dependencies
         run: | 
           sudo apt-get update && sudo apt-get install -y gettext-base
           sudo apt install -y tree
 
-
       - if: github.event_name == 'workflow_dispatch'
         run: echo "TAG_NAME=${{ github.event.inputs.tag_name }}" >> $GITHUB_ENV
       - if: github.event_name == 'schedule'
         run: echo 'TAG_NAME=nightly' >> $GITHUB_ENV
-      - if: github.event_name == 'push'
+      # - if: github.event_name == 'push'
+      - if: ${{ (github.event.name == 'push') && (github.ref_type == 'tag') }}
         run: |
-          # TAG_NAME=${{ github.ref }}
-          TAG_NAME=${{ github.ref }}.${{ github.run_id}}
+          TAG_NAME=${{ github.ref }}
           echo "TAG_NAME=${TAG_NAME#refs/tags/}" >> $GITHUB_ENV
+      - if: ${{ (github.event.name == 'push') && (github.ref_type == 'branch') }}
+        run: |
+          echo "TAG_NAME=dev" >> $GITHUB_ENV
 
       # - name: Rename artifacts
       #   run: | 
@@ -105,6 +106,7 @@ jobs:
             dev*|nightly*|beta*|alpha*)
               echo "PRERELEASE"
               PRERELEASE_FLAG="--prerelease"
+              TAG_NAME=${TAG_NAME}.${{github.run_id}}
               ;;
             *)
               echo "Not PRERELEASE"
