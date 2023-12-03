@@ -10,9 +10,11 @@ on:
         default: nightly
   push:
     tags:
-    - "v[0-9]+.[0-9]+.[0-9]+"
+    # - "v[0-9]+.[0-9]+.[0-9]+"
+    - "v[0-9]+(\\.[0-9]+){2,}"
     - "stable"
     - "nightly"
+    - "beta"
 
 jobs:
   build:
@@ -22,7 +24,7 @@ jobs:
       matrix:
         include:
           - build: linux
-            os: ubuntu-22.04
+            os: ubuntu-latest
             arch: x86_64
             target: x86_64-unknown-linux-gnu
           - build: macos
@@ -41,21 +43,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Dependencies
-      if: matrix.build == 'linux'
-      run: ./scripts/linux.sh deps
     - name: Set up Python 
       uses: actions/setup-python@master
       with:
         python-version: '3.10.6'
-        architecture: 'x64'
-        cache: 'pip'
-    - name: Setup
+        # architecture: 'x64'
+        # cache: 'pip'
+    - name: linux dependencies setup build
       if: matrix.build == 'linux'
-      run: ./scripts/linux.sh setup
-    - name: Build
-      if: matrix.build == 'linux'
-      run: ./scripts/linux.sh build
+      run: |
+        ./scripts/linux.sh deps
+        ./scripts/linux.sh setup
+        ./scripts/linux.sh build
     - uses: actions/upload-artifact@v3
       if: matrix.build == 'linux'
       with:
@@ -91,7 +90,8 @@ jobs:
         run: echo 'TAG_NAME=nightly' >> $GITHUB_ENV
       - if: github.event_name == 'push'
         run: |
-          TAG_NAME=${{ github.ref }}
+          # TAG_NAME=${{ github.ref }}
+          TAG_NAME=${{ github.ref }}.${{ github.run_id}}
           echo "TAG_NAME=${TAG_NAME#refs/tags/}" >> $GITHUB_ENV
 
       # - name: Rename artifacts
