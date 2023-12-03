@@ -17,6 +17,7 @@ on:
     - "stable"
     - "beta"
     - "dev-v[0-9]+.[0-9]+.[0-9]+.[0-9]+"
+  pull_request:
 
 jobs:
   build:
@@ -68,6 +69,8 @@ jobs:
   publish:
     needs: [build]
     runs-on: ubuntu-latest
+    if: |
+      github.event_name != 'pull_request'
     timeout-minutes: 2
     env:
       GH_REPO: ${{ github.repository }}
