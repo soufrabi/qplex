@@ -100,6 +100,16 @@ jobs:
         run: |
           echo "Publishing to github release"
           tree -L 3
-          gh release create $TAG_NAME || echo "Release creation failed, but continuing..." && true
-          gh release upload --clobber $TAG_NAME artifacts_linux/*
+          PRERELEASE_FLAG=""
+          case "$TAG_NAME" in
+            dev*|nightly*|beta*|alpha*)
+              echo "PRERELEASE"
+              PRERELEASE_FLAG="--prerelease"
+              ;;
+            *)
+              echo "Not PRERELEASE"
+              ;;
+          esac
+          gh release create ${PRERELEASE_FLAG} "$TAG_NAME" || echo "Release creation failed, but continuing..." && true
+          gh release upload --clobber "$TAG_NAME" artifacts_linux/*
 
