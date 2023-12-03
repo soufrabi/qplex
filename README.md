@@ -45,7 +45,8 @@
 
 On Debian/Ubuntu
 ```sh
-cd $(mktemp -d) &&  curl -LO https://github.com/soufrabi/openai-client/releases/download/stable/openai-client.deb  && sudo apt install ./openai-client.deb
+curl -LO https://github.com/soufrabi/openai-client/releases/download/stable/openai-client.deb
+sudo apt install ./openai-client.deb
 ```
 
 #### Windows
