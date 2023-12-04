@@ -54,7 +54,7 @@ jobs:
     - name: linux build
       if: matrix.build == 'linux'
       run: |
-        ./scripts/linux_build deps
+        ./scripts/linux_build.sh deps
         ./scripts/linux_build.sh setup
         ./scripts/linux_build.sh build
     - name: windows build
