@@ -47,7 +47,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 
+    - name: Set up Python
       uses: actions/setup-python@master
       with:
         python-version: '3.10.6'
@@ -60,8 +60,9 @@ jobs:
     - uses: actions/upload-artifact@v3
       if: matrix.build == 'linux'
       with:
-        name: artifacts_linux
-        path: ./build_linux/*.deb
+        name: artifacts-${{ matrix.build }}-${{ matrix.arch }}
+        path: |
+          ./build-${{ matrix.build }}-${{ matrix.arch }}/*.deb
         if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
         retention-days: 1
 
@@ -80,7 +81,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
       - name: Install dependencies
-        run: | 
+        run: |
           sudo apt-get update && sudo apt-get install -y gettext-base
           sudo apt install -y tree
 
@@ -101,7 +102,7 @@ jobs:
           echo "TAG_NAME=dev" >> $GITHUB_ENV
 
       # - name: Rename artifacts
-      #   run: | 
+      #   run: |
       #     mv -v artifacts_linux/ryuu artifacts_linux/ryuu-linux
       - name: Public release
         run: |
@@ -120,5 +121,5 @@ jobs:
           esac
           echo "TAG_NAME : ${TAG_NAME}"
           gh release create ${PRERELEASE_FLAG} "$TAG_NAME" || echo "Release creation failed, but continuing..." && true
-          gh release upload --clobber "$TAG_NAME" artifacts_linux/*
+          gh release upload --clobber "$TAG_NAME" artifacts-linux-x86_64/*
 

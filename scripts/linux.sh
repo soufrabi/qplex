@@ -23,13 +23,16 @@ if [ $# -eq 0 ]; then
 fi
 
 
+build_dir="build-linux-$(uname -m)"
+_pkgname="openai-client"
 
 
 
 install_dependencies() {
 	echo "Install dependencies in Linux"
 
-	sudo apt update && sudo apt install -y libgl1 ffmpeg libsm6 libxext6 libegl1 '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+	sudo apt update
+    sudo apt install -y libgl1 libsm6 libxext6 libegl1 '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
 
 
 }
@@ -37,7 +40,7 @@ install_dependencies() {
 
 
 
-_setup() {
+setup_environment() {
 #Install in virtualenv
 python3 -m venv venv
 
@@ -66,13 +69,11 @@ pip3 install --upgrade -r requirements.txt
 
 }
 
-_build() {
+build_binary() {
 
     . venv/bin/activate
     pyinstaller -F main.py
 
-    build_dir="build_linux"
-    _pkgname="openai-client"
 
 
     echo ${build_dir}
@@ -85,6 +86,7 @@ _build() {
 	cp -rv "assets/usr/bin" "${build_dir}/${_pkgname}/usr"
 	cp -rv "assets/usr/share" "${build_dir}/${_pkgname}/usr"
 	cd ${build_dir} && dpkg-deb --build ${_pkgname}
+    cd ..
 
 }
 
@@ -97,7 +99,7 @@ main() {
 	case "$1" in 
 		(build)
 			shift
-			_build "$@"
+			build_binary "$@"
 			;;
 		(deps)
 			shift
@@ -105,7 +107,7 @@ main() {
 			;;
 		(setup)
 			shift
-			_setup "$@"
+			setup_environment "$@"
 			;;
 		(help | --help | -h)
 			show_help 
