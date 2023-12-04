@@ -12,9 +12,8 @@ on:
       - "main"
       - "master"
     tags:
-    - "v[0-9]+.[0-9]+.[0-9]+"
+    - "v[0-9]+.[0-9]+.[0-9]+*"
     - "stable"
-    - "beta-v[0-9]+.[0-9]+.[0-9]+"
   pull_request:
   # schedule:
   # - cron: '20 2 */7 * *'
@@ -54,9 +53,7 @@ jobs:
     - name: linux build
       if: matrix.build == 'linux'
       run: |
-        ./scripts/linux_build.sh deps
-        ./scripts/linux_build.sh setup
-        ./scripts/linux_build.sh build
+        ./scripts/linux_build.sh gh
     - name: windows build
       if: matrix.build == 'windows'
       run: |
@@ -121,7 +118,7 @@ jobs:
           tree -L 1 artifacts*
           PRERELEASE_FLAG=""
           case "$TAG_NAME" in
-            dev*|nightly*|beta*|alpha*)
+            *dev*|*nightly*|*beta*|*alpha*)
               echo "PRERELEASE"
               PRERELEASE_FLAG="--prerelease"
               TAG_NAME=${TAG_NAME}.${{github.run_id}}

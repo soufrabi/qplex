@@ -6,6 +6,7 @@ show_help(){
 linux.sh
 
 Choose one of the available commands:
+    gh
 	build
 	setup
 	deps
@@ -85,14 +86,17 @@ build_binary() {
 	cp -rv "dist/main" "${build_dir}/${_pkgname}/opt/${_pkgname}"
 	cp -rv "assets/usr/bin" "${build_dir}/${_pkgname}/usr"
 	cp -rv "assets/usr/share" "${build_dir}/${_pkgname}/usr"
-	cd ${build_dir} && dpkg-deb --build ${_pkgname}
-    cd ..
+	sh -c "cd ${build_dir} && dpkg-deb --build ${_pkgname}"
 
 }
 
 
+build_gh() {
+    install_dependencies
+    setup_environment
+    build_binary
 
-
+}
 
 main() {
 
@@ -108,6 +112,10 @@ main() {
 		(setup)
 			shift
 			setup_environment "$@"
+			;;
+		(gh)
+			shift
+			build_gh "$@"
 			;;
 		(help | --help | -h)
 			show_help 
