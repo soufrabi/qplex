@@ -28,7 +28,7 @@ function BuildBinary {
 
 New-Item -Path "$build_dir" -Type Directory
 
-Move-Item -Path ".\dist\main" -Destination "$build_dir\$executable_name"
+Move-Item -Path ".\dist\main.exe" -Destination "$build_dir\$executable_name"
 
 
 }
