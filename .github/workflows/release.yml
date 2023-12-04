@@ -114,7 +114,7 @@ jobs:
       - name: Public release
         run: |
           echo "Publishing to github release"
-          tree -L 3
+          tree -L 1 artifacts*
           PRERELEASE_FLAG=""
           case "$TAG_NAME" in
             dev*|nightly*|beta*|alpha*)
