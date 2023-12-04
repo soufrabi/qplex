@@ -126,7 +126,7 @@ jobs:
 
           if [ ! "$BUILD_USING_TAG" = "true" ] ; then
             echo "Not Built using Tag"
-            TAG_NAME="${{ env.APP_VERSION }}.${{ github.run_id }}-${TAG_NAME}"
+            TAG_NAME="${{ env.APP_VERSION }}.${{ github.run_number }}-${TAG_NAME}"
           else
             echo "Built Using Tag"
           fi
