@@ -51,19 +51,26 @@ jobs:
       uses: actions/setup-python@master
       with:
         python-version: '3.10.6'
-    - name: linux dependencies setup build
+    - name: linux build
       if: matrix.build == 'linux'
       run: |
-        ./scripts/linux.sh deps
-        ./scripts/linux.sh setup
-        ./scripts/linux.sh build
+        ./scripts/linux_build deps
+        ./scripts/linux_build.sh setup
+        ./scripts/linux_build.sh build
+    - name: windows build
+      if: matrix.build == 'windows'
+      run: |
+        ./scripts/windows_build.ps1
     - uses: actions/upload-artifact@v3
-      if: matrix.build == 'linux'
+      if: |
+        matrix.build == 'linux' ||
+        matrix.build == 'windows'
       with:
         name: artifacts-${{ matrix.build }}-${{ matrix.arch }}
         path: |
           ./build-${{ matrix.build }}-${{ matrix.arch }}/*.deb
-        if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
+          ./build-${{ matrix.build }}-${{ matrix.arch }}/*.exe
+        if-no-files-found: error
         retention-days: 1
 
   publish:
@@ -122,4 +129,5 @@ jobs:
           echo "TAG_NAME : ${TAG_NAME}"
           gh release create ${PRERELEASE_FLAG} "$TAG_NAME" || echo "Release creation failed, but continuing..." && true
           gh release upload --clobber "$TAG_NAME" artifacts-linux-x86_64/*
+          gh release upload --clobber "$TAG_NAME" artifacts-windows-x86_64/*
 

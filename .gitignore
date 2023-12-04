@@ -20,4 +20,4 @@ main.spec
 
 
 # Deb build
-build_linux/
+build-*

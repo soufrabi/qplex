@@ -62,7 +62,7 @@ which pip3
 
 python3 -m pip install --upgrade pip
 
-pip3 install --upgrade -r requirements.txt
+pip3 install -r requirements.txt
 # python3 -m pip install PySide6
 # python3 -m pip install openai
 # python3 -m pip install pyinstaller
