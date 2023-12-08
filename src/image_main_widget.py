@@ -6,7 +6,7 @@ from PySide6.QtGui import QPixmap, QColor
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
 
 from src.extra_widgets.popups import Popups
-from src.globals.utils import utils
+from src.utils.utils import utils
 from src.apis.dalle_api import DALLEApiController
 
 

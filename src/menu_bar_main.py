@@ -2,6 +2,7 @@ from PySide6.QtWidgets import QMenuBar, QMessageBox
 from PySide6.QtGui import QAction
 from src.localStorage.storagehistory import StorageHistory
 from src.edit_query_settings_ui import EditQuerySettingsDialog
+from src.utils.utils import utils
 import os
 
 class MenuBarMain(QMenuBar):
@@ -107,8 +108,8 @@ class MenuBarMain(QMenuBar):
 
         f_data = ""
         # filename = "/home/darklord/Desktop/openai-client/reference_manual.txt"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, '../info/reference_manual.txt')
+        # dirname = os.path.dirname(__file__)
+        filename = utils.resource_path('resources/info/reference_manual.txt')
 
         # If File does not exist create and empty file
         if not os.path.exists(filename):
@@ -141,8 +142,8 @@ class MenuBarMain(QMenuBar):
 
         f_data = ""
         # filename = "/home/darklord/Desktop/openai-client/about_application.txt"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, '../info/about_application.txt')
+        # dirname = os.path.dirname(__file__)
+        filename = utils.resource_path('resources/info/about_application.txt')
 
         # If File does not exist create and empty file
         if not os.path.exists(filename):
@@ -176,8 +177,9 @@ class MenuBarMain(QMenuBar):
 
         pricing_data = ""
         # filename = "/home/darklord/Desktop/openai-client/pricing_details.txt"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, '../info/pricing_details.txt')
+        # dirname = os.path.dirname(__file__)
+        # filename = os.path.join(dirname, '../info/pricing_details.txt')
+        filename = utils.resource_path('resources/info/pricing_details.txt')
 
         # If File does not exist create and empty file
         if not os.path.exists(filename):

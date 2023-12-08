@@ -1,7 +1,7 @@
 import json
 import os
 import datetime
-from src.globals.utils import utils
+from src.utils.utils import utils
 
 class StorageHistory:
     def __init__(self):

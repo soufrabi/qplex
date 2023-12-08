@@ -3,7 +3,7 @@
 import openai
 import os
 from src.localStorage.storage_query_settings import StorageQuerySettings
-from src.globals.utils import utils
+from src.utils.utils import utils
 
 class ApiKeyController:
     def __init__(self):
