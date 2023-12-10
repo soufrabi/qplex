@@ -53,11 +53,11 @@ jobs:
     - name: windows build
       if: matrix.build == 'windows'
       run: |
-        ./scripts/win_build.ps1
+        ./scripts/windows_build.ps1
     - name: mac build
       if: matrix.build == 'macos'
       run: |
-        ./scripts/mac_build.sh
+        ./scripts/macos_build.sh
     - uses: actions/upload-artifact@v3
       if: |
         matrix.build == 'linux' ||

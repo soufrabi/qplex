@@ -53,7 +53,7 @@ sudo apt install ./openai-client.deb
 
 Open Powershell in Admin mode and run the following command
 ```
-irm https://raw.githubusercontent.com/soufrabi/openai-client/master/scripts/win_install.ps1 | iex
+irm https://raw.githubusercontent.com/soufrabi/openai-client/master/scripts/windows_install.ps1 | iex
 ```
 
 or, 
