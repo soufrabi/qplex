@@ -1,3 +1,4 @@
+import sys
 import os
 import platform
 
@@ -126,14 +127,19 @@ class Utils:
             except Exception as e:
                 print(f"Error deleting {file_path}: {e}")
 
+    # https://stackoverflow.com/questions/7674790/bundling-data-files-with-pyinstaller-onefile
     def resource_path(self,relative_path:str)->str:
         """ Get absolute path to resource, works for dev and for PyInstaller """
-        try:
-            # PyInstaller creates a temp folder and stores path in _MEIPASS
-            base_path = sys._MEIPASS
-        except Exception:
-            base_path = os.path.abspath(".")
+        # try:
+        #     # PyInstaller creates a temp folder and stores path in _MEIPASS
+        #     base_path = sys._MEIPASS
+        #     # base_path = sys._MEIPASS2
+        # except Exception:
+        #     base_path = os.path.abspath(".")
 
+        # return os.path.join(base_path, relative_path)
+
+        base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
         return os.path.join(base_path, relative_path)
 
 

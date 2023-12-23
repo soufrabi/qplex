@@ -73,7 +73,7 @@ pip3 install -r requirements.txt
 build_binary() {
 
     . venv/bin/activate
-    pyinstaller -F main.py
+    pyinstaller -F --add-data "resources/info/*.txt:resources/info" main.py
 
 
 
