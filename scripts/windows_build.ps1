@@ -19,7 +19,7 @@ venv/scripts/activate
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
-pyinstaller -F main.py
+pyinstaller -F --add-data "resources;resources" main.py
 
 
 }
