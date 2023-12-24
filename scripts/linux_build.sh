@@ -76,16 +76,16 @@ build_binary() {
     pyinstaller -F --add-data "resources:resources" main.py
 
 
-
     echo ${build_dir}
 	rm -rf ${build_dir}
 	mkdir -pv "${build_dir}/${_pkgname}"
-	mkdir -pv "${build_dir}/${_pkgname}/usr"
-	mkdir -pv "${build_dir}/${_pkgname}/opt/${_pkgname}"
+	mkdir -pv "${build_dir}/${_pkgname}/usr/bin"
+	mkdir -pv "${build_dir}/${_pkgname}/usr/share/applications"
+	mkdir -pv "${build_dir}/${_pkgname}/usr/share/icons/hicolor/scalable/apps"
 	cp -rv "assets/DEBIAN" "${build_dir}/${_pkgname}"
-	cp -rv "dist/main" "${build_dir}/${_pkgname}/opt/${_pkgname}"
-	cp -rv "assets/usr/bin" "${build_dir}/${_pkgname}/usr"
-	cp -rv "assets/usr/share" "${build_dir}/${_pkgname}/usr"
+	cp -rv "dist/main" "${build_dir}/${_pkgname}/usr/bin/${_pkgname}"
+	cp -rv "assets/${_pkgname}.desktop" "${build_dir}/${_pkgname}/usr/share/applications"
+	cp -rv "assets/${_pkgname}.svg" "${build_dir}/${_pkgname}/usr/share/icons/hicolor/scalable/apps"
 	sh -c "cd ${build_dir} && dpkg-deb --build ${_pkgname}"
 
 }
