@@ -16,21 +16,21 @@ class Utils:
             return fallback_dir
 
         if platform.system() == "Linux":
-            
+
             fallback_config_dir = os.path.join(os.path.expanduser("~"), ".config")
             fallback_data_dir = os.path.join(os.path.expanduser("~"), ".local", "share")
             fallback_cache_dir = os.path.join(os.path.expanduser("~"), ".cache")
-            
+
             self.sys_config_dir = get_valid_path('XDG_CONFIG_HOME', fallback_config_dir)
             self.sys_data_dir = get_valid_path('XDG_DATA_HOME', fallback_data_dir)
             self.sys_cache_dir = get_valid_path('XDG_CACHE_HOME', fallback_cache_dir)
-            
+
 
         elif platform.system() == "Windows":
             fallback_config_dir = os.path.join(os.path.expanduser("~"), ".config")
             fallback_data_dir = os.path.join(os.path.expanduser("~"), ".local", "share")
             fallback_cache_dir = os.path.join(os.path.expanduser("~"), ".cache")
-            
+
             self.sys_config_dir = get_valid_path('XDG_CONFIG_HOME', fallback_config_dir)
             self.sys_data_dir = get_valid_path('XDG_DATA_HOME', fallback_data_dir)
             self.sys_cache_dir = get_valid_path('XDG_CACHE_HOME', fallback_cache_dir)
@@ -38,7 +38,7 @@ class Utils:
             fallback_config_dir = os.path.join(os.path.expanduser("~"), ".config")
             fallback_data_dir = os.path.join(os.path.expanduser("~"), ".local", "share")
             fallback_cache_dir = os.path.join(os.path.expanduser("~"), ".cache")
-            
+
             self.sys_config_dir = get_valid_path('XDG_CONFIG_HOME', fallback_config_dir)
             self.sys_data_dir = get_valid_path('XDG_DATA_HOME', fallback_data_dir)
             self.sys_cache_dir = get_valid_path('XDG_CACHE_HOME', fallback_cache_dir)
@@ -130,20 +130,14 @@ class Utils:
     # https://stackoverflow.com/questions/7674790/bundling-data-files-with-pyinstaller-onefile
     def resource_path(self,relative_path:str)->str:
         """ Get absolute path to resource, works for dev and for PyInstaller """
-        # try:
-        #     # PyInstaller creates a temp folder and stores path in _MEIPASS
-        #     base_path = sys._MEIPASS
-        #     # base_path = sys._MEIPASS2
-        # except Exception:
-        #     base_path = os.path.abspath(".")
+        try:
+            # PyInstaller creates a temp folder and stores path in _MEIPASS
+            base_path = sys._MEIPASS
+            # base_path = sys._MEIPASS2
+        except Exception:
+            base_path = os.path.abspath(".")
 
-        # return os.path.join(base_path, relative_path)
-
-        base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
         return os.path.join(base_path, relative_path)
-
-
-
 
 
 utils = Utils()
