@@ -1,8 +1,8 @@
 <h1 align="center"> Open AI client </h1>
 
 <p align="center">
-  <a href="https://opensource.org/licenses/MIT">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg">
+  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">
+    <img alt="License: AGPLv3" src="https://shields.io/badge/License-GPL%20v3-blue.svg">
   </a>
 
   <a href="https://github.com/soufrabi/openai-client/commits/master">
@@ -23,7 +23,7 @@
 </p>
 
 ## Screenshots
-<div align="center" style=""> 
+<div align="center" style="">
 
   <img alt="screenshot1" style="max-width:40vw;" src="https://soufrabi.github.io/project-assets/openai-client/screenshots/screenshot1.png">
   <img alt="screenshot1" style="max-width:40vw;" src="https://soufrabi.github.io/project-assets/openai-client/screenshots/screenshot2.png">
@@ -56,7 +56,7 @@ Open Powershell in Admin mode and run the following command
 irm https://raw.githubusercontent.com/soufrabi/openai-client/master/scripts/windows_install.ps1 | iex
 ```
 
-or, 
+or,
 
 Download the application from the
 <a href="https://github.com/soufrabi/openai-client/releases/">releases section</a>
@@ -64,7 +64,7 @@ Download the application from the
 #### Add your API key
 
 1. Go to Settings -> Edit Settings -> API
-2. Paste or Type your API key 
+2. Paste or Type your API key
 3. Click on Save
 
 ## Development
@@ -74,8 +74,9 @@ Download the application from the
 ```sh
 git clone https://github.com/soufrabi/openai-client.git
 cd openai-client
-./scripts/linux.sh deps
-./scripts/linux.sh setup
+./scripts/linux_build.sh deps
+./scripts/linux_build.sh setup
+./scripts/linux_build.sh build
 ```
 
 
