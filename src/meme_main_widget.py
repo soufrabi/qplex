@@ -4,7 +4,7 @@ import shutil
 from PySide6.QtWidgets import QWidget, QLabel, QScrollArea, QTextEdit, QPushButton
 from PySide6.QtGui import QPixmap, QColor
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
-from src.utils.utils import utils
+from src.utils import utils
 from src.apis.meme_api import MemeApiController
 from src.extra_widgets.popups import Popups
 

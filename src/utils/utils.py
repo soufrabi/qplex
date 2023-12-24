@@ -128,8 +128,10 @@ class Utils:
                 print(f"Error deleting {file_path}: {e}")
 
     # https://stackoverflow.com/questions/7674790/bundling-data-files-with-pyinstaller-onefile
-    def resource_path(self,relative_path:str)->str:
+    def resource_path(self,*args:str)->str:
         """ Get absolute path to resource, works for dev and for PyInstaller """
+
+        relative_path:str = os.path.join(*args)
         try:
             # PyInstaller creates a temp folder and stores path in _MEIPASS
             base_path = sys._MEIPASS
@@ -140,7 +142,6 @@ class Utils:
         return os.path.join(base_path, relative_path)
 
 
-utils = Utils()
 
 
 

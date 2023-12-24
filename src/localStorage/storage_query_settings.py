@@ -1,6 +1,6 @@
 import json
 import os
-from src.utils.utils import utils
+from src.utils import utils
 
 class StorageQuerySettings:
     def __init__(self):

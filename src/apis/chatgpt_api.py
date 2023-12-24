@@ -4,7 +4,7 @@ import openai
 import os
 from src.apis.api_key_controller import ApiKeyController
 from src.localStorage.storage_query_settings import StorageQuerySettings
-from src.utils.utils import utils
+from src.utils import utils
 
 
 class ChatGPTApiController:
