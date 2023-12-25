@@ -8,9 +8,6 @@ from src.utils import utils
 class ApiKeyController:
     def __init__(self):
         print("API controller constructor called")
-        # self.filename = "/home/darklord/Desktop/openai-client/secret_apikey.txt"
-
-        # dirname = os.path.dirname(__file__)
         dirname = utils.get_settings_dir()
         self.filename = os.path.join(dirname, 'secret_apikey.txt')
 

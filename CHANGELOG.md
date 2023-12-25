@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixes
 ### Security
 
-## [1.0.3] - 2023-12-25
+## [0.1.3] - 2023-12-25
 ### Added
 ### Changed
 ### Deprecated
@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Data Files included with pyinstaller
 ### Security
 
-## [1.0.2] - 2023-07-22
+## [0.1.2] - 2023-07-22
 ### Added
 - Github actions
 ### Changed
@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixes
 ### Security
 
-## [1.0.1] - 2023-07-11
+## [0.1.1] - 2023-07-11
 ### Added
 - Flatpak support
 ### Changed
@@ -39,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixes
 ### Security
 
-## [1.0.0] - 2023-01-23
+## [0.1.0] - 2023-01-23
 ### Added
 - Initial Release
 ### Changed

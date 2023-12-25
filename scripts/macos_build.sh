@@ -1,6 +1,6 @@
 #!/bin/sh
 
-_pkgname="openai-client"
+_pkgname="qplex"
 build_dir="build_binary"
 
 printf "Building for MacOS\n"

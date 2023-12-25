@@ -5,7 +5,6 @@ from src.utils import utils
 
 class StorageHistory:
     def __init__(self):
-        # self.filename = "/home/darklord/Desktop/openai-client/history_log.json"
 
         # dirname = os.path.dirname(__file__)
         dirname = utils.get_history_dir()

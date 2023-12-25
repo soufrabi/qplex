@@ -1,8 +1,0 @@
-Package: openai-client
-Version: 1.0
-Architecture: amd64
-Essential: no
-Priority: optional
-Depends: git (>= 1.8), python3 (>= 3.6), python3-pip (>= 20.0)
-Maintainer: Anirban Dey
-Description: OpenAI client made using PySide6

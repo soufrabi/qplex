@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=qplex
+Name=QPlex
+Comment=QPlex Desktop App
+Icon=qplex

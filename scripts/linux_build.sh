@@ -25,7 +25,7 @@ fi
 
 
 build_dir="build_binary"
-_pkgname="openai-client"
+_pkgname="qplex"
 
 
 
@@ -64,9 +64,6 @@ which pip3
 python3 -m pip install --upgrade pip
 
 pip3 install -r requirements.txt
-# python3 -m pip install PySide6
-# python3 -m pip install openai
-# python3 -m pip install pyinstaller
 
 }
 

@@ -48,15 +48,15 @@ irm https://scripts.anirbandey.net/windows/path.ps1 | iex
 function Main {
 
 # Define the directory containing your application
-$AppName = "openai-client"
-$ExeName = "openai-client.exe"
+$AppName = "qplex"
+$ExeName = "qplex.exe"
 $Author = "Anirban"
 $AuthorDirectory = "C:\Program Files\${Author}"  # Change to your actual directory
 $BinDirectory = "C:\Program Files\${Author}\Bin"  # Change to your actual directory
 $AppDirectory = "C:\Program Files\${Author}\Apps\${AppName}"  # Change to your actual directory
 
-$Uri = "https://github.com/anirbandey1/openai-client/releases/download/v1.0.0/openai-client.exe"
-$Dest = "openai-client.exe"
+$Uri = "https://github.com/soufrabi/qplex/releases/download/stable/qplex.exe"
+$Dest = "qplex.exe"
 
 
 # Check for administrative privileges

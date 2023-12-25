@@ -5,19 +5,19 @@
     <img alt="License: AGPLv3" src="https://shields.io/badge/License-GPL%20v3-blue.svg">
   </a>
 
-  <a href="https://github.com/soufrabi/openai-client/commits/master">
-    <img alt="GitHub commits" src="https://img.shields.io/github/commit-activity/y/soufrabi/openai-client?color=red&label=commits">
+  <a href="https://github.com/soufrabi/qplex/commits/master">
+    <img alt="GitHub commits" src="https://img.shields.io/github/commit-activity/y/soufrabi/qplex?color=red&label=commits">
   </a>
 
-  <a href="https://github.com/soufrabi/openai-client/issues">
-    <img alt="GitHub issues" src="https://img.shields.io/github/issues/soufrabi/openai-client?color=important">
+  <a href="https://github.com/soufrabi/qplex/issues">
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/soufrabi/qplex?color=important">
   </a>
-  <a href="https://github.com/soufrabi/openai-client/pulls">
-    <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/soufrabi/openai-client?color=blueviolet">
+  <a href="https://github.com/soufrabi/qplex/pulls">
+    <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/soufrabi/qplex?color=blueviolet">
   </a>
 
-  <a href="https://github.com/soufrabi/openai-client/stargazers">
-    <img alt="GitHub stars" src="https://img.shields.io/github/stars/soufrabi/openai-client?style=social">
+  <a href="https://github.com/soufrabi/qplex/stargazers">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/soufrabi/qplex?style=social">
   </a>
 
 </p>
@@ -25,15 +25,15 @@
 ## Screenshots
 <div align="center" style="">
 
-  <img alt="screenshot1" style="max-width:40vw;" src="https://soufrabi.github.io/project-assets/openai-client/screenshots/screenshot1.png">
-  <img alt="screenshot1" style="max-width:40vw;" src="https://soufrabi.github.io/project-assets/openai-client/screenshots/screenshot2.png">
+  <img alt="screenshot1" style="max-width:40vw;" src="https://soufrabi.github.io/project-assets/qplex/screenshots/img1.png">
+  <img alt="screenshot1" style="max-width:40vw;" src="https://soufrabi.github.io/project-assets/qplex/screenshots/img2.png">
 
 </div>
 
 ## Videos
 <div align="center" style="">
 
-  [![video1](https://soufrabi.github.io/assets/openai-client/videos/video1.gif)](https://soufrabi.github.io/assets/openai-client/videos/video1.mp4)
+  [![video1](https://soufrabi.github.io/assets/qplex/videos/video1.gif)](https://soufrabi.github.io/assets/qplex/videos/video1.mp4)
 
 </div>
 
@@ -45,21 +45,21 @@
 
 On Debian/Ubuntu
 ```sh
-curl -LO https://github.com/soufrabi/openai-client/releases/download/stable/openai-client.deb
-sudo apt install ./openai-client.deb
+curl -LO https://github.com/soufrabi/qplex/releases/download/stable/qplex.deb
+sudo apt install ./qplex.deb
 ```
 
 #### Windows
 
 Open Powershell in Admin mode and run the following command
 ```
-irm https://raw.githubusercontent.com/soufrabi/openai-client/master/scripts/windows_install.ps1 | iex
+irm https://raw.githubusercontent.com/soufrabi/qplex/main/scripts/windows_install.ps1 | iex
 ```
 
 or,
 
 Download the application from the
-<a href="https://github.com/soufrabi/openai-client/releases/">releases section</a>
+<a href="https://github.com/soufrabi/qplex/releases/">releases section</a>
 
 #### Add your API key
 
@@ -72,8 +72,8 @@ Download the application from the
 ### Testing
 
 ```sh
-git clone https://github.com/soufrabi/openai-client.git
-cd openai-client
+git clone https://github.com/soufrabi/qplex.git
+cd qplex
 ./scripts/linux_build.sh deps
 ./scripts/linux_build.sh setup
 ./scripts/linux_build.sh build

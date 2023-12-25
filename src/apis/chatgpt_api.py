@@ -10,7 +10,6 @@ from src.utils import utils
 class ChatGPTApiController:
     def __init__(self):
         print("API controller constructor called")
-        # self.filename = "/home/darklord/Desktop/openai-client/secret_apikey.txt"
 
         # dirname = os.path.dirname(__file__)
         dirname = utils.get_config_dir()

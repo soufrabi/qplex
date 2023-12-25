@@ -3,8 +3,8 @@
 # Ensure that cwd is the root directory of the git repository
 
 $build_dir = "build_binary"
-$package_name = "openai-client"
-$executable_name = "openai-client.exe"
+$package_name = "qplex"
+$executable_name = "qplex.exe"
 
 function InstallDependencies {
     Write-Host "Install Dependencies"

@@ -1,8 +1,8 @@
-Package: openai-client
+Package: qplex
 Version: 1.0
 Architecture: amd64
 Essential: no
 Priority: optional
 Depends: xorg (>= 6.0)
 Maintainer: Anirban Dey
-Description: OpenAI client made using PySide6
+Description: QPlex made using PySide6

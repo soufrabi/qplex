@@ -107,8 +107,6 @@ class MenuBarMain(QMenuBar):
         message.setWindowTitle("Reference Manual")
 
         f_data = ""
-        # filename = "/home/darklord/Desktop/openai-client/reference_manual.txt"
-        # dirname = os.path.dirname(__file__)
         filename = utils.resource_path('resources','info','reference_manual.txt')
 
         # If File does not exist create and empty file
@@ -138,11 +136,9 @@ class MenuBarMain(QMenuBar):
 
         message = QMessageBox()
         message.setMinimumSize(300, 200)
-        message.setWindowTitle("About OpenAI client")
+        message.setWindowTitle("About QPlex")
 
         f_data = ""
-        # filename = "/home/darklord/Desktop/openai-client/about_application.txt"
-        # dirname = os.path.dirname(__file__)
         filename = utils.resource_path('resources','info','about_application.txt')
 
         # If File does not exist create and empty file
@@ -176,9 +172,6 @@ class MenuBarMain(QMenuBar):
         message.setWindowTitle("Pricing Details")
 
         pricing_data = ""
-        # filename = "/home/darklord/Desktop/openai-client/pricing_details.txt"
-        # dirname = os.path.dirname(__file__)
-        # filename = os.path.join(dirname, '../info/pricing_details.txt')
         filename = utils.resource_path('resources','info','pricing_details.txt')
 
         # If File does not exist create and empty file

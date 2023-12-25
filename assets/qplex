@@ -1,16 +1,16 @@
 #!/bin/sh
 
-printf "Open AI client made using PySide6 qt\n"
+printf "QPlex\n"
 
 if [ -f /.flatpak-info ]; then
 
     printf "Flatpak environment detected\n"
     printf "Running Inside Sandbox\n"
-    /app/share/openai-client/main
+    /app/share/qplex/main
 
 else 
     printf "Not a flatpak environment\n"
-    /usr/share/openai-client/main
+    /usr/share/qplex/main
 fi
 
 

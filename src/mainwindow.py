@@ -11,7 +11,7 @@ class MainWindow (QMainWindow):
     def __init__(self, app):
         super().__init__()
         self.app = app # declare an app window
-        self.setWindowTitle("OpenAI client (Unofficial)")
+        self.setWindowTitle("QPlex")
 
         # Central Widget
         central_widget = CentralWidget()

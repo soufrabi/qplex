@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Terminal=false
-Exec=openai-client
-Name=OpenAI client
-Comment=OpenAI client for Desktop (Unofficial)
-Icon=openai-client
-

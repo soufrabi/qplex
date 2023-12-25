@@ -7,7 +7,7 @@ class Utils:
     def __init__(self):
         # Check if the operating system is Linux
 
-        self.package_name = "openai-client"
+        self.package_name = "qplex"
 
         def get_valid_path(env_var, fallback_dir)->str:
             path = os.getenv(env_var)
@@ -82,11 +82,11 @@ class Utils:
     def get_config_dir(self,):
 
         if platform.system() == "Linux":
-            config_dir = os.path.join(os.path.expanduser("~"), ".config", "openai-client")
+            config_dir = os.path.join(os.path.expanduser("~"), ".config", self.package_name)
         elif platform.system() == "Windows":
-            config_dir = os.path.join(os.path.expanduser("~"), ".config", "openai-client")
+            config_dir = os.path.join(os.path.expanduser("~"), ".config", self.package_name)
         else:
-            config_dir = os.path.join(os.path.expanduser("~"), ".config", "openai-client")
+            config_dir = os.path.join(os.path.expanduser("~"), ".config", self.package_name)
 
         return config_dir
 
