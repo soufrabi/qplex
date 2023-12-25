@@ -12,6 +12,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixes
 ### Security
 
+## [1.0.3] - 2023-12-25
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixes
+- Data Files included with pyinstaller
+### Security
+
 ## [1.0.2] - 2023-07-22
 ### Added
 - Github actions
