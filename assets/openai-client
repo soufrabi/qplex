@@ -1,16 +1,16 @@
 #!/bin/sh
 
-echo "Open AI client made using PySide6 qt"
+printf "Open AI client made using PySide6 qt\n"
 
 if [ -f /.flatpak-info ]; then
 
-    echo "Flatpak environment detected"
-    echo "Running Inside Sandbox"
-    /app/opt/openai-client/main
+    printf "Flatpak environment detected\n"
+    printf "Running Inside Sandbox\n"
+    /app/share/openai-client/main
 
 else 
-    echo "Not a flatpak environment"
-    /opt/openai-client/main
+    printf "Not a flatpak environment\n"
+    /usr/share/openai-client/main
 fi
 
 
