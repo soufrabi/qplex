@@ -43,7 +43,7 @@ install_dependencies() {
 
 setup_environment() {
 #Install in virtualenv
-python3 -m venv venv
+python -m venv venv
 
 if [ -f venv/bin/activate ]; then
     echo "Python virtualenv created properly"
@@ -57,13 +57,12 @@ pwd
 
 . venv/bin/activate
 
-which python3
-which pip3
+which python
+which pip
 
 
-python3 -m pip install --upgrade pip
-
-pip3 install -r requirements.txt
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 
 }
 
