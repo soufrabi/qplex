@@ -2,7 +2,7 @@
 # Generate executable in windows
 # Ensure that cwd is the root directory of the git repository
 
-$build_dir = "build-windows-x86_64"
+$build_dir = "build_binary"
 $package_name = "openai-client"
 $executable_name = "openai-client.exe"
 

@@ -70,10 +70,16 @@ pip3 install -r requirements.txt
 
 }
 
-build_binary() {
+build_pyinstaller_binary(){
 
     . venv/bin/activate
     pyinstaller -F --add-data "resources:resources" main.py
+
+}
+
+build_binary() {
+
+    build_pyinstaller_binary
 
 
     echo ${build_dir}
