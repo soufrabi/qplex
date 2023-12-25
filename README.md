@@ -1,4 +1,4 @@
-<h1 align="center"> Open AI client </h1>
+<h1 align="center"> QPlex </h1>
 
 <p align="center">
   <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">
@@ -86,7 +86,7 @@ cd qplex
 
 ## License
 
-This project is licensed under the GPLv3 License - see the LICENSE.md file for details
+This project is licensed under the GPLv3 License - see the [LICENSE](./LICENSE) file for details
 
 
 
