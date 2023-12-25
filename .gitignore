@@ -20,4 +20,4 @@ main.spec
 
 
 # Deb build
-build-*
+build_binary

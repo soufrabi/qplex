@@ -24,7 +24,7 @@ if [ $# -eq 0 ]; then
 fi
 
 
-build_dir="build-linux-$(uname -m)"
+build_dir="build_binary"
 _pkgname="openai-client"
 
 
@@ -82,10 +82,12 @@ build_binary() {
 	mkdir -pv "${build_dir}/${_pkgname}/usr/bin"
 	mkdir -pv "${build_dir}/${_pkgname}/usr/share/applications"
 	mkdir -pv "${build_dir}/${_pkgname}/usr/share/icons/hicolor/scalable/apps"
+	mkdir -pv "${build_dir}/${_pkgname}/usr/share/${_pkgname}"
 	cp -rv "assets/DEBIAN" "${build_dir}/${_pkgname}"
-	cp -rv "dist/main" "${build_dir}/${_pkgname}/usr/bin/${_pkgname}"
+	cp -rv "assets/${_pkgname}" "${build_dir}/${_pkgname}/usr/bin"
 	cp -rv "assets/${_pkgname}.desktop" "${build_dir}/${_pkgname}/usr/share/applications"
 	cp -rv "assets/${_pkgname}.svg" "${build_dir}/${_pkgname}/usr/share/icons/hicolor/scalable/apps"
+	cp -rv "dist/main" "${build_dir}/${_pkgname}/usr/share/${_pkgname}"
 	sh -c "cd ${build_dir} && dpkg-deb --build ${_pkgname}"
 
 }

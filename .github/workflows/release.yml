@@ -65,8 +65,8 @@ jobs:
       with:
         name: artifacts-${{ matrix.build }}-${{ matrix.arch }}
         path: |
-          ./build-${{ matrix.build }}-${{ matrix.arch }}/*.deb
-          ./build-${{ matrix.build }}-${{ matrix.arch }}/*.exe
+          ./build_binary/*.deb
+          ./build_binary/*.exe
         if-no-files-found: error
         retention-days: 1
 
