@@ -6,7 +6,7 @@ class MemeApiController:
 
         print("Meme API controller")
 
-    def get_pixmap(self):
+    def get_image(self):
 
         url = 'https://meme-api.com/gimme'
         # Make a GET request to the URL and get the image data
@@ -16,6 +16,9 @@ class MemeApiController:
         # Get the URL of the image from the JSON object
         image_url = data['url']
         print(image_url)
+        # https://i.redd.it/unnunn4f7pac1.png
+        reddit_image_id = image_url[18:]
+        print(reddit_image_id)
 
         # Make a GET request to the image URL and get the image data
         response = requests.get(image_url)
@@ -30,7 +33,7 @@ class MemeApiController:
         pixmap = QPixmap.fromImage(image)
 
         # print(pixmap)
-        return pixmap
+        return reddit_image_id, image_data, pixmap
 
 
 

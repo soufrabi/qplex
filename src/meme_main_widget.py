@@ -118,7 +118,7 @@ class MemeWidgetMain(QWidget):
         dirname = utils.get_memes_dir()
 
         meme_obj = MemeApiController()
-        pixmap = meme_obj.get_pixmap()
+        reddit_image_id, image_data, pixmap = meme_obj.get_image()
 
         width = self.image_config["width"]
         height = self.image_config["height"]
@@ -129,10 +129,15 @@ class MemeWidgetMain(QWidget):
 
         size = len(os.listdir(dirname))
         # filename = "image" + str(size) + ".jpg"
-        filename = "image_meme_{:03d}.jpg".format(size)
+        # filename = "image_meme_{:03d}.jpg".format(size)
+        filename = reddit_image_id
         filepath = os.path.join(dirname, filename)
 
-        pixmap.save(filepath)
+        print(f"Writing to {filepath}")
+        file_w = open(filepath,"wb")
+        file_w.write(image_data)
+        file_w.close()
+        # pixmap.save(filepath)
 
     def clear_output(self):
 
@@ -157,7 +162,6 @@ class MemeWidgetMain(QWidget):
         print(contents)
 
         for filename in reversed(contents):
-            # filename = 'img1.jpg'
             print(filename)
             filepath = os.path.join(dirname, filename)
             pixmap = QPixmap(filepath)
