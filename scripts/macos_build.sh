@@ -5,8 +5,9 @@ build_dir="build_binary"
 
 printf "Building for MacOS\n"
 
-python -m venv .venv
-. ./.venv/bin/activate
+python -m venv venv
+. venv/bin/activate
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 pyinstaller -F --add-data "resources:resources" main.py
 
