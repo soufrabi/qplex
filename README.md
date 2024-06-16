@@ -82,7 +82,7 @@ cd qplex
 
 ## Author
 
-<a href = "https://anirbandey.net" style="text-decoration: none; color: inherit;">Anirban Dey</a>
+<a href = "https://anirban.soufrabi.com" style="text-decoration: none; color: inherit;">Anirban Dey</a>
 
 ## License
 
