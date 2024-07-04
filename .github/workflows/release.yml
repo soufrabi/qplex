@@ -26,14 +26,6 @@ jobs:
             os: ubuntu-latest
             arch: x86_64
             target: x86_64-unknown-linux-gnu
-          - build: macos
-            os: macos-latest
-            arch: x86_64
-            target: x86_64-apple-darwin
-          - build: macos
-            os: macos-latest
-            arch: aarch64
-            target: aarch64-apple-darwin
           - build: windows
             os: windows-latest
             arch: x86_64
@@ -54,10 +46,6 @@ jobs:
       if: matrix.build == 'windows'
       run: |
         ./scripts/windows_build.ps1
-    - name: mac build
-      if: matrix.build == 'macos'
-      run: |
-        ./scripts/macos_build.sh
     - uses: actions/upload-artifact@v3
       if: |
         matrix.build == 'linux' ||
